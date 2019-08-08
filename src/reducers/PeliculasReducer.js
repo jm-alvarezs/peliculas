@@ -1,4 +1,4 @@
-import { PELICULAS_RECEIVED, SEARCH_PELICULAS } from "../actions/types";
+import { PELICULAS_RECEIVED, SEARCH_PELICULAS, SET_PELICULA, SET_NOMBRE_PELICULA, SET_DIRECTOR_PELICULA, SET_CATEGORIA_PELICULA, SET_PROTAGONISTAS_PELICULA } from "../actions/types";
 
 const INITIAL_STATE = {
     peliculas: [],
@@ -28,6 +28,16 @@ export default (state = INITIAL_STATE, action) => {
                 || searchProtagonistas(pelicula.protagonistas, query)
             );
             return { ...state, searchResult };
+        case SET_PELICULA:
+            return {...state, pelicula: action.payload };
+        case SET_NOMBRE_PELICULA:
+            return {...state, pelicula: {...state.pelicula, nombre: action.payload }};
+        case SET_DIRECTOR_PELICULA:
+            return {...state, pelicula: {...state.pelicula, director: action.payload }};
+        case SET_CATEGORIA_PELICULA:
+            return {...state, pelicula: {...state.pelicula, categoria: action.payload }};
+        case SET_PROTAGONISTAS_PELICULA:
+            return {...state, pelicula: {...state.pelicula, protagonistas: action.payload }};
         default:
             return { ...state };
     }
