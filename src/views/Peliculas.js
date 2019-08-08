@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import PeliculaCard from '../components/PeliculaCard';
 import Container from 'react-bootstrap/Container';
 import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
+import PeliculaModal from "../components/PeliculaModal";
+import PeliculasHeader from "../components/PeliculasHeader";
 import { getPeliculas, searchPelicula, editarPelicula, clearPelicula, hideModal } from "../actions/peliculasActions";
 import { connect } from "react-redux";
-import PeliculaForm from "../components/PeliculaForm";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 
 class Peliculas extends Component {
 
@@ -36,22 +33,11 @@ class Peliculas extends Component {
     render() {
         return (
             <Container className="mt-3">
-                <Row>
-                    <Col>
-                        <h1>Peliculas</h1>
-                    </Col>
-                    <Col className="text-right">
-                        <Button variant="success" className="rounded pr-4 pl-4 shadow-sm" onClick={() => this.props.editarPelicula({id: "nueva", nombre: "", director: "", categoria: "", protagonistas: ""})}>
-                            Agregar Pelicula
-                        </Button>
-                    </Col>
-                </Row>
+                <PeliculasHeader onClick={this.props.editarPelicula} />
                 <Form.Control type="text" className="border-0 pl-0 pr-0" placeholder="Buscar por Nombre de Pelicula, Director, Categoria o Protagonistas..." onChange={(e) => this.props.searchPelicula(e.target.value)} />
                 <hr />
                 {this.renderPeliculas()}
-                <Modal show={this.props.showModal} onHide={this.props.hideModal}>
-                    <PeliculaForm pelicula={this.props.pelicula} />
-                </Modal>
+                <PeliculaModal showModal={this.props.showModal} pelicula={this.props.pelicula} hideModal={this.props.hideModal} />
             </Container>
         );
     }
