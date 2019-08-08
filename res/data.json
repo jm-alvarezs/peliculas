@@ -1,0 +1,44 @@
+{
+    "peliculas": [
+        {
+            "id": 0,
+            "nombre": "Pulp Fiction",
+            "director": 0,
+            "categoria": 0,
+            "protagonistas": [
+                0,
+                1
+            ]
+        }
+    ],
+    "categorias": [
+        {
+            "id": 0,
+            "nombre": "Terror"
+        },
+        {
+            "id": 1,
+            "nombre": "Amor"
+        },
+        {
+            "id": 2,
+            "nombre": "Acción"
+        }
+    ],
+    "directores": [
+        {
+            "id": 0,
+            "nombre": "Quentin Tarantino"
+        }
+    ],
+    "protagonistas": [
+        {
+            "id": 0,
+            "nombre": "John Travolta"
+        },
+        {
+            "id": 1,
+            "nombre": "Samuel L. Jackson"
+        }
+    ]
+}
