@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 class PeliculaCard extends Component {
     render() {
         return (
-            <Card className="p-3 rounded shadow-sm">
+            <Card className="p-3 mb-2 rounded shadow-sm">
                 <Row>
                     <Container fluid={true}>
                         <h3>{this.props.pelicula.nombre}</h3>
@@ -28,4 +28,4 @@ class PeliculaCard extends Component {
     }
 }
 
-export default PeliculaCard;
+export default PeliculaCard; 

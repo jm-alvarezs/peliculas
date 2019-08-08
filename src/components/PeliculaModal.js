@@ -4,15 +4,21 @@ import Button from "react-bootstrap/Button";
 import PeliculaForm from "./PeliculaForm";
 
 class PeliculaModal extends Component {
+
+  renderForm() {
+    if(this.props.pelicula) return <PeliculaForm pelicula={this.props.pelicula} />;
+    return <></>;
+  }
+
   render() {
     return (
       <Modal show={this.props.showModal} onHide={this.props.hideModal}>
-        <PeliculaForm pelicula={this.props.pelicula} />
+        {this.renderForm()}
         <Modal.Footer>
           <Button variant="outline-secondary" onClick={this.props.hideModal}>
             Cancelar
           </Button>
-          <Button variant="success" className="pl-5 pr-5">
+          <Button variant="success" className="pl-5 pr-5" onClick={this.props.onConfirm}>
             OK
           </Button>
         </Modal.Footer>

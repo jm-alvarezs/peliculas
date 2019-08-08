@@ -1,11 +1,14 @@
 {
-    "peliculas": [
-        {
-            "id": 0,
-            "nombre": "Pulp Fiction",
-            "director": "Quentin Tarantino",
-            "categoria": "Acción",
-            "protagonistas": ["John Travolta", "Samuel L. Jackson"]
-        }
-    ]
+  "peliculas": [
+    {
+      "id": 0,
+      "nombre": "Pulp Fiction",
+      "director": "Quentin Tarantino",
+      "categoria": "Acción",
+      "protagonistas": [
+        "John Travolta",
+        "Samuel L. Jackson"
+      ]
+    }
+  ]
 }
