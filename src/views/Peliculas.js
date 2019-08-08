@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import PeliculaCard from '../components/PeliculaCard';
 import Container from 'react-bootstrap/Container';
 import Form from "react-bootstrap/Form";
+import { getPeliculas } from "../actions/peliculasActions";
+import { connect } from "react-redux";
 
 class Peliculas extends Component {
+
+    componentWillMount() {
+        this.props.getPeliculas();
+    }
 
     renderPeliculas() {
         if (this.props.peliculas) {
@@ -26,4 +32,8 @@ class Peliculas extends Component {
     }
 }
 
-export default Peliculas;
+const mapStateToProps = state => ({
+    peliculas: state.peliculas.peliculas
+})
+
+export default connect(mapStateToProps, { getPeliculas })(Peliculas);

@@ -1,18 +1,10 @@
-import { PELICULAS_RECEIVED, CATEGORIAS_RECEIVED, PROTAGONISTAS_RECEIVED, DIRECTORES_RECEIVED } from "./types";
+import { PELICULAS_RECEIVED } from "./types";
 import axios from "axios";
 
-export const getPeliculas = () => {
+const BASE_URL = "http://localhost:4000";
 
-};
-
-export const getCategorias = () => {
-
-};
-
-export const getProtagonistas = () => {
-
-};
-
-export const getDirectores = () => {
-
+export const getPeliculas = () => dispatch => {
+    axios.get(BASE_URL + "/peliculas")
+        .then(res => dispatch({ type: PELICULAS_RECEIVED, payload: res.data }))
+        .catch(error => console.log(error));
 };
