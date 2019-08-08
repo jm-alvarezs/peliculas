@@ -20,7 +20,6 @@ class PeliculaForm extends Component {
     render() {
         return (
             <Container fluid={true} className="pt-3 pb-4">
-                <h2 className="mb-3">Pelicula</h2>
                 <Form.Control type="text" className="mb-2" placeholder="Nombre" value={this.props.pelicula.nombre} onChange={e => this.props.setNombrePelicula(e.target.value)} />
                 <Form.Control type="text" className="mb-2" placeholder="Director" value={this.props.pelicula.director} onChange={e => this.props.setDirectorPelicula(e.target.value)} />
                 <Form.Control as="select" className="mb-2" ref={select => this.select = select} value={this.props.pelicula.categoria} onChange={this.handleSelect}>

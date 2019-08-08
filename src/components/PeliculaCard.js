@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
+import { editarPelicula } from "../actions/peliculasActions";
+import { connect } from "react-redux";
 
 class PeliculaCard extends Component {
     render() {
@@ -18,7 +20,7 @@ class PeliculaCard extends Component {
                 </Row>
                 <Row>
                     <Container fluid={true} className="text-right">
-                        <Button variant="outline-secondary">
+                        <Button variant="outline-secondary" onClick={() => this.props.editarPelicula(this.props.pelicula)}>
                             Edit
                         </Button>
                     </Container>
@@ -28,4 +30,4 @@ class PeliculaCard extends Component {
     }
 }
 
-export default PeliculaCard; 
+export default connect(null, { editarPelicula })(PeliculaCard); 

@@ -13,6 +13,9 @@ class PeliculaModal extends Component {
   render() {
     return (
       <Modal show={this.props.showModal} onHide={this.props.hideModal}>
+        <Modal.Header>
+          <h2>Pelicula</h2>
+        </Modal.Header>
         {this.renderForm()}
         <Modal.Footer>
           <Button variant="outline-secondary" onClick={this.props.hideModal}>

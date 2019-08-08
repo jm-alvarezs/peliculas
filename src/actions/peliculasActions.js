@@ -54,6 +54,13 @@ export const postPelicula = (pelicula, callback) => dispatch => {
 };
 
 export const updatePelicula = (pelicula, callback) => dispatch => {
+  let error = validarPelicula(pelicula);
+  if(error !== "") {
+    displayError(error);
+    return;
+  }
+  let protagonistas = pelicula.protagonistas.split(",");
+  pelicula.protagonistas = protagonistas;
   axios
     .put(BASE_URL + "/peliculas/"+pelicula.id, {
       nombre: pelicula.nombre,
