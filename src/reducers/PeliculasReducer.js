@@ -10,7 +10,8 @@ const INITIAL_STATE = {
 const searchProtagonistas = (protagonistas, query) => {
     let found = false;
     for (let i = 0; i < protagonistas.length; i++) {
-        if (protagonistas[i].toLowerCase().startsWith(query)) found = true;
+        let protagonista = protagonistas[i].toLowerCase().replace(/^\s+/g, '');
+        if (protagonista.startsWith(query)) found = true;
     }
     return found;
 }
