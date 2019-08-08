@@ -1,4 +1,4 @@
-import { PELICULAS_RECEIVED, SEARCH_PELICULAS, SET_NOMBRE_PELICULA, SET_DIRECTOR_PELICULA, SET_CATEGORIA_PELICULA, SET_PROTAGONISTAS_PELICULA, SET_PELICULA } from "./types";
+import { PELICULAS_RECEIVED, SEARCH_PELICULAS, SET_NOMBRE_PELICULA, SET_DIRECTOR_PELICULA, SET_CATEGORIA_PELICULA, SET_PROTAGONISTAS_PELICULA, SET_PELICULA, SET_MODAL } from "./types";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:4000";
@@ -29,8 +29,21 @@ export const updatePelicula = (pelicula, callback) => dispatch => {
         .catch(error => console.log(error));
 };
 
+export const clearPelicula = () => dispatch => {
+    dispatch({ type: SET_PELICULA, payload: undefined });
+};
+
+export const showModal = () => dispatch => {
+    dispatch({ type: SET_MODAL, payload: true });
+};
+
+export const hideModal = () => dispatch => {
+    dispatch({ type: SET_MODAL, payload: false });
+};
+
 export const editarPelicula = pelicula => dispatch => {
     dispatch({ type: SET_PELICULA, payload: pelicula });
+    dispatch({ type: SET_MODAL, payload: true });
 };
 
 export const setNombrePelicula = nombre => dispatch => {
