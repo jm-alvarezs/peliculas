@@ -4,7 +4,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 
-class PeliculasCard extends Component {
+class PeliculaCard extends Component {
     render() {
         return (
             <Card className="p-3 rounded shadow-sm">
@@ -28,4 +28,4 @@ class PeliculasCard extends Component {
     }
 }
 
-export default PeliculasCard;
+export default PeliculaCard;
