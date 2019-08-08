@@ -7,7 +7,7 @@ import Row from "react-bootstrap/Row";
 class PeliculasCard extends Component {
     render() {
         return (
-            <Card className="p-3 rounded">
+            <Card className="p-3 rounded shadow-sm">
                 <Row>
                     <Container fluid={true}>
                         <h3>Pelicula</h3>
