@@ -10,17 +10,17 @@ class PeliculaCard extends Component {
             <Card className="p-3 rounded shadow-sm">
                 <Row>
                     <Container fluid={true}>
-                        <h3>Pelicula</h3>
-                        <h4>Director</h4>
-                        <h5>Categoría</h5>
-                        <p>Protagonistas</p>
+                        <h3>{this.props.pelicula.nombre}</h3>
+                        <h4>{this.props.pelicula.director}</h4>
+                        <h5>{this.props.pelicula.categoria}</h5>
+                        <p>{this.props.pelicula.protagonistas.map((protagonista, index) => <span key={index}>{protagonista}{", "}</span>)}</p>
                     </Container>
                 </Row>
                 <Row>
                     <Container fluid={true} className="text-right">
                         <Button variant="outline-secondary">
                             Edit
-                            </Button>
+                        </Button>
                     </Container>
                 </Row>
             </Card>
