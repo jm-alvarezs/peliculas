@@ -5,9 +5,20 @@
       "director": "Quentin Tarantino",
       "categoria": "Acción",
       "protagonistas": [
-        "John Travolta"
+        "John Travolta",
+        " Samuel L. Jackson"
       ],
       "id": 0
+    },
+    {
+      "nombre": "Titanic",
+      "director": "James Cameron",
+      "categoria": "Amor",
+      "protagonistas": [
+        "Leonardo Di Caprio",
+        " Kate Winslet"
+      ],
+      "id": 1
     }
   ]
 }

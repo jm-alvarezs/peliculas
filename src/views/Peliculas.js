@@ -58,8 +58,14 @@ class Peliculas extends Component {
           hideModal={this.props.hideModal}
           onConfirm={() =>
             this.props.pelicula.id !== "nueva"
-              ? this.props.updatePelicula(this.props.pelicula)
-              : this.props.postPelicula(this.props.pelicula)
+              ? this.props.updatePelicula(this.props.pelicula, () => {
+                  this.props.hideModal();
+                  this.props.getPeliculas();
+                })
+              : this.props.postPelicula(this.props.pelicula, () => {
+                  this.props.hideModal();
+                  this.props.getPeliculas();
+                })
           }
         />
       </Container>
@@ -76,5 +82,13 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getPeliculas, searchPelicula, editarPelicula, clearPelicula, hideModal, updatePelicula, postPelicula }
+  {
+    getPeliculas,
+    searchPelicula,
+    editarPelicula,
+    clearPelicula,
+    hideModal,
+    updatePelicula,
+    postPelicula
+  }
 )(Peliculas);
