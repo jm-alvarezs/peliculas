@@ -6,7 +6,8 @@ import {
   SET_CATEGORIA_PELICULA,
   SET_PROTAGONISTAS_PELICULA,
   SET_PELICULA,
-  SET_MODAL
+  SET_MODAL,
+  SET_SEARCH_TYPE
 } from "./types";
 import axios from "axios";
 
@@ -31,6 +32,10 @@ export const getPeliculas = () => dispatch => {
     .then(res => dispatch({ type: PELICULAS_RECEIVED, payload: res.data }))
     .catch(error => console.log(error));
 };
+
+export const setSearchType = type => dispatch => {
+  dispatch({ type: SET_SEARCH_TYPE, payload: type });
+}
 
 export const searchPelicula = query => dispatch => {
   dispatch({ type: SEARCH_PELICULAS, payload: query });

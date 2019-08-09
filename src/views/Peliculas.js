@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PeliculaCard from "../components/PeliculaCard";
 import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
 import PeliculaModal from "../components/PeliculaModal";
 import PeliculasHeader from "../components/PeliculasHeader";
 import {
@@ -11,9 +10,11 @@ import {
   clearPelicula,
   updatePelicula,
   postPelicula,
-  hideModal
+  hideModal,
+  setSearchType
 } from "../actions/peliculasActions";
 import { connect } from "react-redux";
+import PeliculasSearch from "../components/PeliculasSearch";
 
 class Peliculas extends Component {
   componentWillMount() {
@@ -44,12 +45,7 @@ class Peliculas extends Component {
     return (
       <Container className="mt-3">
         <PeliculasHeader onClick={this.props.editarPelicula} />
-        <Form.Control
-          type="text"
-          className="border-0 pl-0 pr-0"
-          placeholder="Buscar por Nombre de Pelicula, Director, Categoria o Protagonistas..."
-          onChange={e => this.props.searchPelicula(e.target.value)}
-        />
+        <PeliculasSearch modifier={this.props.setSearchType} search={this.props.searchPelicula} />
         <hr />
         {this.renderPeliculas()}
         <PeliculaModal
@@ -89,6 +85,7 @@ export default connect(
     clearPelicula,
     hideModal,
     updatePelicula,
-    postPelicula
+    postPelicula,
+    setSearchType
   }
 )(Peliculas);

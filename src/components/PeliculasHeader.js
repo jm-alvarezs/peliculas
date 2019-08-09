@@ -7,11 +7,11 @@ class PeliculasHeader extends Component {
     render() {
         return (
             <Row>
-            <Col>
+            <Col xs={12} sm={8} md={10}>
                 <h1>Peliculas</h1>
             </Col>
-            <Col className="text-right">
-                <Button className="round15 block shadow-sm border-0" onClick={() => this.props.onClick({id: "nueva", nombre: "", director: "", categoria: "", protagonistas: ""})}>
+            <Col xs={12} sm={4} md={2} className="text-right">
+                <Button block className="round15 block shadow-sm border-0" onClick={() => this.props.onClick({id: "nueva", nombre: "", director: "", categoria: "", protagonistas: ""})}>
                     <i className="fa fa-plus"></i> Agregar
                 </Button>
             </Col>
