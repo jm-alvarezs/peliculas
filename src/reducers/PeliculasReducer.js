@@ -6,7 +6,6 @@ import {
   SET_DIRECTOR_PELICULA,
   SET_CATEGORIA_PELICULA,
   SET_PROTAGONISTAS_PELICULA,
-  SET_MODAL,
   SET_SEARCH_TYPE
 } from "../actions/types";
 
@@ -14,7 +13,6 @@ const INITIAL_STATE = {
   peliculas: [],
   searchResult: undefined,
   pelicula: undefined,
-  showModal: false
 };
 
 const searchProtagonistas = (protagonistas, query) => {
@@ -55,8 +53,6 @@ const searchPeliculas = (peliculas, type, query) => {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case SET_MODAL:
-      return { ...state, showModal: action.payload };
     case PELICULAS_RECEIVED:
       return { ...state, peliculas: action.payload };
     case SET_SEARCH_TYPE:

@@ -10,9 +10,9 @@ import {
   clearPelicula,
   updatePelicula,
   postPelicula,
-  hideModal,
   setSearchType
 } from "../actions/peliculasActions";
+import { hideModal } from "../actions/modalActions";
 import { connect } from "react-redux";
 import PeliculasSearch from "../components/PeliculasSearch";
 
@@ -73,7 +73,8 @@ const mapStateToProps = state => ({
   peliculas: state.peliculas.peliculas,
   searchResult: state.peliculas.searchResult,
   pelicula: state.peliculas.pelicula,
-  showModal: state.peliculas.showModal
+  showModal: state.peliculas.showModal,
+  onConfirm: state.peliculas.onConfirm
 });
 
 export default connect(

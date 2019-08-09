@@ -6,8 +6,8 @@ import {
   SET_CATEGORIA_PELICULA,
   SET_PROTAGONISTAS_PELICULA,
   SET_PELICULA,
-  SET_MODAL,
-  SET_SEARCH_TYPE
+  SET_SEARCH_TYPE,
+  SHOW_MODAL
 } from "./types";
 import axios from "axios";
 
@@ -79,21 +79,21 @@ export const updatePelicula = (pelicula, callback) => dispatch => {
     .catch(error => console.log(error));
 };
 
+export const deletePelicula = (id, callback) => dispatch => {
+  axios.delete(BASE_URL+"/peliculas/"+id)
+  .then(() => {
+    if(callback) callback();
+  })
+  .catch(error => console.log(error));
+}
+
 export const clearPelicula = () => dispatch => {
   dispatch({ type: SET_PELICULA, payload: undefined });
 };
 
-export const showModal = () => dispatch => {
-  dispatch({ type: SET_MODAL, payload: true });
-};
-
-export const hideModal = () => dispatch => {
-  dispatch({ type: SET_MODAL, payload: false });
-};
-
 export const editarPelicula = pelicula => dispatch => {
   dispatch({ type: SET_PELICULA, payload: pelicula });
-  dispatch({ type: SET_MODAL, payload: true });
+  dispatch({ type: SHOW_MODAL });
 };
 
 export const setNombrePelicula = nombre => dispatch => {
