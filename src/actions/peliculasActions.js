@@ -7,7 +7,6 @@ import {
   SET_PROTAGONISTAS_PELICULA,
   SET_PELICULA,
   SET_SEARCH_TYPE,
-  SHOW_MODAL,
   MODAL_COMPONENT
 } from "./types";
 import axios from "axios";
