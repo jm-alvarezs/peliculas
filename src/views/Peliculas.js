@@ -33,7 +33,17 @@ class Peliculas extends Component {
           peliculas = this.props.peliculas;
         }
         return peliculas.map(pelicula => (
-          <PeliculaCard pelicula={pelicula} key={pelicula.id} />
+          <PeliculaCard
+            pelicula={pelicula}
+            key={pelicula.id}
+            confirmEdit={() => {
+              this.props.updatePelicula(
+                this.props.pelicula,
+                this.props.getPeliculas
+              );
+              this.props.hideModal();
+            }}
+          />
         ));
       }
       return <p>No hay peliculas</p>;
@@ -44,25 +54,30 @@ class Peliculas extends Component {
   render() {
     return (
       <Container className="mt-3">
-        <PeliculasHeader onClick={this.props.editarPelicula} />
-        <PeliculasSearch modifier={this.props.setSearchType} search={this.props.searchPelicula} />
+        <PeliculasHeader
+          onClick={this.props.editarPelicula}
+          callback={() => {
+            this.props.postPelicula(
+              this.props.pelicula,
+              this.props.getPeliculas
+            );
+            this.props.hideModal();
+          }}
+        />
+        <PeliculasSearch
+          modifier={this.props.setSearchType}
+          search={this.props.searchPelicula}
+        />
         <hr />
         {this.renderPeliculas()}
         <PeliculaModal
+          title={"Administrar Pelicula"}
           showModal={this.props.showModal}
           pelicula={this.props.pelicula}
           hideModal={this.props.hideModal}
-          onConfirm={() =>
-            this.props.pelicula.id !== "nueva"
-              ? this.props.updatePelicula(this.props.pelicula, () => {
-                  this.props.hideModal();
-                  this.props.getPeliculas();
-                })
-              : this.props.postPelicula(this.props.pelicula, () => {
-                  this.props.hideModal();
-                  this.props.getPeliculas();
-                })
-          }
+          onConfirm={this.props.onConfirm}
+          component={this.props.component}
+          message={this.props.message}
         />
       </Container>
     );
@@ -73,8 +88,10 @@ const mapStateToProps = state => ({
   peliculas: state.peliculas.peliculas,
   searchResult: state.peliculas.searchResult,
   pelicula: state.peliculas.pelicula,
-  showModal: state.peliculas.showModal,
-  onConfirm: state.peliculas.onConfirm
+  showModal: state.modal.showModal,
+  onConfirm: state.modal.onConfirm,
+  component: state.modal.component,
+  message: state.modal.message
 });
 
 export default connect(

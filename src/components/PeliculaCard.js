@@ -4,7 +4,13 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { editarPelicula } from "../actions/peliculasActions";
+import {
+  getPeliculas,
+  editarPelicula,
+  deletePelicula,
+  updatePelicula
+} from "../actions/peliculasActions";
+import { confirm, hideModal } from "../actions/modalActions";
 import { connect } from "react-redux";
 
 class PeliculaCard extends Component {
@@ -17,12 +23,7 @@ class PeliculaCard extends Component {
             <h4>{this.props.pelicula.director}</h4>
             <h5>{this.props.pelicula.categoria}</h5>
             <p>
-              {this.props.pelicula.protagonistas.map((protagonista, index) => (
-                <span key={index}>
-                  {protagonista}
-                  {", "}
-                </span>
-              ))}
+              {this.props.pelicula.protagonistas}
             </p>
           </Container>
         </Row>
@@ -31,17 +32,33 @@ class PeliculaCard extends Component {
             <Button
               variant="outline-primary"
               onClick={() =>
-                this.props.editarPelicula({
-                  ...this.props.pelicula,
-                  protagonistas: this.props.pelicula.protagonistas.join(", ")
-                })
+                this.props.editarPelicula(
+                  this.props.pelicula,
+                  this.props.confirmEdit
+                )
               }
             >
               <i className="fa fa-edit" /> Editar
             </Button>
           </Col>
           <Col className="text-right">
-            <Button variant="outline-danger" onClick={() => {}}>
+            <Button
+              variant="outline-danger"
+              onClick={() =>
+                this.props.confirm(
+                  `¿Eliminar pelicula ${
+                    this.props.pelicula.nombre
+                  }? Esta acción NO puede deshacerse.`,
+                  () => {
+                    this.props.deletePelicula(
+                      this.props.pelicula.id,
+                      this.props.getPeliculas
+                    );
+                    this.props.hideModal();
+                  }
+                )
+              }
+            >
               <i className="fa fa-trash" /> Eliminar Pelicula
             </Button>
           </Col>
@@ -53,5 +70,12 @@ class PeliculaCard extends Component {
 
 export default connect(
   null,
-  { editarPelicula }
+  {
+    getPeliculas,
+    editarPelicula,
+    deletePelicula,
+    updatePelicula,
+    confirm,
+    hideModal
+  }
 )(PeliculaCard);

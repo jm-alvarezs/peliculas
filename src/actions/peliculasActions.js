@@ -7,7 +7,8 @@ import {
   SET_PROTAGONISTAS_PELICULA,
   SET_PELICULA,
   SET_SEARCH_TYPE,
-  SHOW_MODAL
+  SHOW_MODAL,
+  MODAL_COMPONENT
 } from "./types";
 import axios from "axios";
 
@@ -29,7 +30,13 @@ const displayError = error => {
 export const getPeliculas = () => dispatch => {
   axios
     .get(BASE_URL + "/peliculas")
-    .then(res => dispatch({ type: PELICULAS_RECEIVED, payload: res.data }))
+    .then(res => {
+      let peliculas = res.data;
+      peliculas.forEach(pelicula => {
+        pelicula.protagonistas = pelicula.protagonistas.join(", ")
+      });
+      dispatch({ type: PELICULAS_RECEIVED, payload: peliculas })
+    })
     .catch(error => console.log(error));
 };
 
@@ -58,7 +65,7 @@ export const postPelicula = (pelicula, callback) => dispatch => {
     .catch(error => console.log(error));
 };
 
-export const updatePelicula = (pelicula, callback) => dispatch => {
+export const updatePelicula = (pelicula, callback) => dispatch => {  
   let error = validarPelicula(pelicula);
   if(error !== "") {
     displayError(error);
@@ -91,9 +98,9 @@ export const clearPelicula = () => dispatch => {
   dispatch({ type: SET_PELICULA, payload: undefined });
 };
 
-export const editarPelicula = pelicula => dispatch => {
+export const editarPelicula = (pelicula, onConfirm) => dispatch => {
   dispatch({ type: SET_PELICULA, payload: pelicula });
-  dispatch({ type: SHOW_MODAL });
+  dispatch({ type: MODAL_COMPONENT, payload: { onConfirm, component: "form" }})
 };
 
 export const setNombrePelicula = nombre => dispatch => {

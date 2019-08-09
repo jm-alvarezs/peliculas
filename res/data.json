@@ -6,7 +6,7 @@
       "categoria": "Acción",
       "protagonistas": [
         "John Travolta",
-        "  Samuel L. Jackson"
+        "   Samuel L. Jackson"
       ],
       "id": 0
     },
@@ -21,11 +21,12 @@
       "id": 1
     },
     {
-      "nombre": "Prueba",
-      "director": "Prueba",
+      "nombre": "Terror en Amityville",
+      "director": "Andrew Douglas",
       "categoria": "Terror",
       "protagonistas": [
-        "Prueba"
+        "Ryan Reynolds",
+        "     Chloe Grace Moretz"
       ],
       "id": 2
     }

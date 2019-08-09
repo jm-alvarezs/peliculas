@@ -1,7 +1,7 @@
 import { SHOW_MODAL, HIDE_MODAL, SET_CONFIRM } from "./types";
 
-export const confirm = onConfirm => dispatch => {
-  dispatch({ type: SET_CONFIRM, payload: onConfirm });
+export const confirm = (message, onConfirm) => dispatch => {
+  dispatch({ type: SET_CONFIRM, payload: { onConfirm, message } });
 };
 
 export const showModal = () => dispatch => {

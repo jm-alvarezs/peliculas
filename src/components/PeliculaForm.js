@@ -22,8 +22,7 @@ class PeliculaForm extends Component {
   }
 
   componentDidMount() {
-    let value = ReactDOM.findDOMNode(this.select).value;
-    if (value === "") this.props.setCategoriaPelicula("Terror");
+    this.handleSelect();
   }
 
   render() {
