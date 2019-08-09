@@ -21,7 +21,7 @@ class PeliculaModal extends Component {
           <Button variant="outline-secondary" onClick={this.props.hideModal}>
             Cancelar
           </Button>
-          <Button variant="success" className="pl-5 pr-5" onClick={this.props.onConfirm}>
+          <Button className="pl-5 pr-5" onClick={this.props.onConfirm}>
             OK
           </Button>
         </Modal.Footer>

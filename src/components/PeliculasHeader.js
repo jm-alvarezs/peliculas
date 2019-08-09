@@ -11,7 +11,7 @@ class PeliculasHeader extends Component {
                 <h1>Peliculas</h1>
             </Col>
             <Col className="text-right">
-                <Button variant="success" className="rounded pr-4 pl-4 shadow-sm" onClick={() => this.props.onClick({id: "nueva", nombre: "", director: "", categoria: "", protagonistas: ""})}>
+                <Button className="round15 pr-4 pl-4 p-2 shadow-sm border-0" onClick={() => this.props.onClick({id: "nueva", nombre: "", director: "", categoria: "", protagonistas: ""})}>
                     Agregar Pelicula
                 </Button>
             </Col>

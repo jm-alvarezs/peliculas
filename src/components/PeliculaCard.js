@@ -20,7 +20,7 @@ class PeliculaCard extends Component {
                 </Row>
                 <Row>
                     <Container fluid={true} className="text-right">
-                        <Button variant="outline-secondary" onClick={() => this.props.editarPelicula({...this.props.pelicula, protagonistas: this.props.pelicula.protagonistas.join(", ")})}>
+                        <Button variant="outline-primary" onClick={() => this.props.editarPelicula({...this.props.pelicula, protagonistas: this.props.pelicula.protagonistas.join(", ")})}>
                             Edit
                         </Button>
                     </Container>
