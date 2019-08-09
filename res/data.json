@@ -19,6 +19,15 @@
         " Kate Winslet"
       ],
       "id": 1
+    },
+    {
+      "nombre": "Prueba",
+      "director": "Prueba",
+      "categoria": "Terror",
+      "protagonistas": [
+        "Prueba"
+      ],
+      "id": 2
     }
   ]
 }

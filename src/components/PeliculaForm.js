@@ -17,6 +17,11 @@ class PeliculaForm extends Component {
         this.props.setCategoriaPelicula(value);
     }
 
+    componentDidMount() {
+        let value = ReactDOM.findDOMNode(this.select).value;
+        if(value === "") this.props.setCategoriaPelicula("Terror");
+    }
+
     render() {
         return (
             <Container fluid={true} className="pt-3 pb-4">
