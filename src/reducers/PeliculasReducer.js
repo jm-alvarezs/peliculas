@@ -16,6 +16,7 @@ const INITIAL_STATE = {
 };
 
 const searchProtagonistas = (protagonistas, query) => {
+  protagonistas = protagonistas.split(", ");
   let found = false;
   for (let i = 0; i < protagonistas.length; i++) {
     let protagonista = protagonistas[i].toLowerCase().replace(/^\s+/g, "");
