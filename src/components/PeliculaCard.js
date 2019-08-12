@@ -22,6 +22,7 @@ class PeliculaCard extends Component {
             <h3>{this.props.pelicula.nombre}</h3>
             <h4>{this.props.pelicula.director}</h4>
             <h5>{this.props.pelicula.categoria}</h5>
+            <h6>{this.props.pelicula.duracion}{" min"}</h6>
             <p>
               {this.props.pelicula.protagonistas}
             </p>

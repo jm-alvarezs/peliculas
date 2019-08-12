@@ -7,7 +7,9 @@ import {
   SET_PROTAGONISTAS_PELICULA,
   SET_PELICULA,
   SET_SEARCH_TYPE,
-  MODAL_COMPONENT
+  MODAL_COMPONENT,
+  SET_DURACION_PELICULA,
+  HIDE_MODAL
 } from "./types";
 import axios from "axios";
 
@@ -19,6 +21,7 @@ const validarPelicula = pelicula => {
   else if(pelicula.director === "") error = "Director";
   else if(pelicula.protagonistas === "") error = "Protagonistas";
   else if(pelicula.categoria === "") error = "Categoria";
+  else if(pelicula.duracion === "" || isNaN(pelicula.duracion)) error = "Duración";
   return error;
 }
 
@@ -59,6 +62,7 @@ export const postPelicula = (pelicula, callback) => dispatch => {
     axios
     .post(BASE_URL + "/peliculas", { ...pelicula })
     .then(() => {
+      dispatch({ type: HIDE_MODAL });
       if (callback) callback();
     })
     .catch(error => console.log(error));
@@ -80,6 +84,7 @@ export const updatePelicula = (pelicula, callback) => dispatch => {
       protagonistas: pelicula.protagonistas
     })
     .then(() => {
+      dispatch({ type: HIDE_MODAL });
       if (callback) callback();
     })
     .catch(error => console.log(error));
@@ -116,4 +121,8 @@ export const setCategoriaPelicula = categoria => dispatch => {
 
 export const setProtagonistas = protagonistas => dispatch => {
   dispatch({ type: SET_PROTAGONISTAS_PELICULA, payload: protagonistas });
+};
+
+export const setDuracionPelicula = duracion => dispatch => {
+  dispatch({ type: SET_DURACION_PELICULA, payload: duracion })
 };

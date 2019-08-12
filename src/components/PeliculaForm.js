@@ -6,7 +6,8 @@ import {
   setNombrePelicula,
   setDirectorPelicula,
   setCategoriaPelicula,
-  setProtagonistas
+  setProtagonistas,
+  setDuracionPelicula
 } from "../actions/peliculasActions";
 import { connect } from "react-redux";
 
@@ -44,6 +45,13 @@ class PeliculaForm extends Component {
             onChange={e => this.props.setDirectorPelicula(e.target.value)}
           />
           <Form.Control
+            type="number"
+            className="mb-2"
+            placeholder="Duración"
+            value={this.props.pelicula.duracion}
+            onChange={e => this.props.setDuracionPelicula(e.target.value)}
+          />
+          <Form.Control
             as="select"
             className="mb-2"
             ref={select => (this.select = select)}
@@ -72,6 +80,7 @@ export default connect(
     setNombrePelicula,
     setDirectorPelicula,
     setCategoriaPelicula,
-    setProtagonistas
+    setProtagonistas,
+    setDuracionPelicula
   }
 )(PeliculaForm);

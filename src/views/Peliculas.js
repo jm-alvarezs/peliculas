@@ -41,7 +41,6 @@ class Peliculas extends Component {
                 this.props.pelicula,
                 this.props.getPeliculas
               );
-              this.props.hideModal();
             }}
           />
         ));
@@ -61,7 +60,6 @@ class Peliculas extends Component {
               this.props.pelicula,
               this.props.getPeliculas
             );
-            this.props.hideModal();
           }}
         />
         <PeliculasSearch

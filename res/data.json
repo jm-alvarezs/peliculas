@@ -6,7 +6,7 @@
       "categoria": "Acción",
       "protagonistas": [
         "John Travolta",
-        "   Samuel L. Jackson"
+        "    Samuel L. Jackson"
       ],
       "id": 0
     },
@@ -18,6 +18,7 @@
         "Leonardo Di Caprio",
         " Kate Winslet"
       ],
+      "duracion": 150,
       "id": 1
     },
     {
@@ -28,6 +29,7 @@
         "Ryan Reynolds",
         "     Chloe Grace Moretz"
       ],
+      "duracion": 89,
       "id": 2
     }
   ]

@@ -6,13 +6,14 @@ import {
   SET_DIRECTOR_PELICULA,
   SET_CATEGORIA_PELICULA,
   SET_PROTAGONISTAS_PELICULA,
-  SET_SEARCH_TYPE
+  SET_SEARCH_TYPE,
+  SET_DURACION_PELICULA
 } from "../actions/types";
 
 const INITIAL_STATE = {
   peliculas: [],
   searchResult: undefined,
-  pelicula: undefined,
+  pelicula: undefined
 };
 
 const searchProtagonistas = (protagonistas, query) => {
@@ -86,6 +87,11 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         pelicula: { ...state.pelicula, protagonistas: action.payload }
+      };
+    case SET_DURACION_PELICULA:
+      return {
+        ...state,
+        pelicula: { ...state.pelicula, duracion: action.payload }
       };
     default:
       return { ...state };
