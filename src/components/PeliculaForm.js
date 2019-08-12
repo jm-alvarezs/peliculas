@@ -50,6 +50,7 @@ class PeliculaForm extends Component {
             placeholder="Duración"
             value={this.props.pelicula.duracion}
             onChange={e => this.props.setDuracionPelicula(e.target.value)}
+            min="0"
           />
           <Form.Control
             as="select"
