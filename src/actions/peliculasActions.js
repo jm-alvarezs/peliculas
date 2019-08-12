@@ -81,7 +81,8 @@ export const updatePelicula = (pelicula, callback) => dispatch => {
       nombre: pelicula.nombre,
       director: pelicula.director,
       categoria: pelicula.categoria,
-      protagonistas: pelicula.protagonistas
+      protagonistas: pelicula.protagonistas,
+      duracion: pelicula.duracion
     })
     .then(() => {
       dispatch({ type: HIDE_MODAL });
