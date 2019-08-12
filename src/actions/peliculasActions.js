@@ -65,13 +65,25 @@ export const postPelicula = (pelicula, callback) => dispatch => {
   }
   let protagonistas = pelicula.protagonistas.split(",");
   pelicula.protagonistas = protagonistas;
-  axios
+  axios.get(BASE_URL+"/peliculas")
+  .then(res => {
+    let peliculas = res.data;
+    for(let i = 0; i < peliculas.length; i++) {
+      if(peliculas[i].nombre === pelicula.nombre && peliculas[i].director === pelicula.director) {
+        displayError("Pelicula Existente. Nombre y Director");
+        return;
+      }
+    }
+    axios
     .post(BASE_URL + "/peliculas", { ...pelicula })
     .then(() => {
       dispatch({ type: HIDE_MODAL });
       if (callback) callback();
     })
     .catch(error => console.log(error));
+  })
+  .catch(error => console.log(error));
+  
 };
 
 export const updatePelicula = (pelicula, callback) => dispatch => {
