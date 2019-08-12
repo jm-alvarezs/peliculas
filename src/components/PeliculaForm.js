@@ -36,6 +36,7 @@ class PeliculaForm extends Component {
             placeholder="Nombre"
             value={this.props.pelicula.nombre}
             onChange={e => this.props.setNombrePelicula(e.target.value)}
+            maxLength={50}
           />
           <Form.Control
             type="text"
@@ -43,6 +44,7 @@ class PeliculaForm extends Component {
             placeholder="Director"
             value={this.props.pelicula.director}
             onChange={e => this.props.setDirectorPelicula(e.target.value)}
+            maxLength={30}
           />
           <Form.Control
             type="number"
@@ -51,6 +53,7 @@ class PeliculaForm extends Component {
             value={this.props.pelicula.duracion}
             onChange={e => this.props.setDuracionPelicula(e.target.value)}
             min="0"
+            max="999"
           />
           <Form.Control
             as="select"
@@ -59,15 +62,16 @@ class PeliculaForm extends Component {
             value={this.props.pelicula.categoria}
             onChange={this.handleSelect}
           >
-            <option>Terror</option>
-            <option>Amor</option>
             <option>Acción</option>
+            <option>Amor</option>
+            <option>Terror</option>
           </Form.Control>
           <Form.Control
             type="text"
             placeholder="Protagonistas (separar por comas)"
             value={this.props.pelicula.protagonistas}
             onChange={e => this.props.setProtagonistas(e.target.value)}
+            maxLength={150}
           />
         </Form>
       </Container>
