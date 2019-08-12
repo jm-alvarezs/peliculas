@@ -27,7 +27,7 @@ class PeliculasSearch extends Component {
           <Form.Control
             type="text"
             className="border-0 pl-0 pr-0"
-            placeholder="Buscar por Nombre de Pelicula, Director, Categoria o Protagonistas..."
+            placeholder="Buscar por Nombre de Película, Director, Categoría o Protagonistas..."
             onChange={e => this.props.search(e.target.value)}
           />
         </Col>

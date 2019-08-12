@@ -8,7 +8,7 @@ class PeliculasHeader extends Component {
     return (
       <Row>
         <Col xs={12} sm={8} md={10}>
-          <h1>Peliculas</h1>
+          <h1>Películas</h1>
         </Col>
         <Col xs={12} sm={4} md={2} className="text-right">
           <Button
